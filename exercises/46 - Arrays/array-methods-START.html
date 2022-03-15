@@ -139,15 +139,39 @@
     */
 
     // find the first rating that talks about a burger with find()
+    const firstRating = feedback.find(rating => rating.comment.includes('burger'));
+    console.log(firstRating);
+
     // find all ratings that are above 2 with filter()
+    const aboveTwoRating = feedback.filter(rating => rating.rating >= 2);
+    console.log(aboveTwoRating);
+    
     // find all ratings that talk about a burger with filter()
+    const ratingsAboutBurger = feedback.filter(rating => rating.comment.toLowerCase().includes('burger'));
+    console.log(ratingsAboutBurger);
+    
     // Remove the one star rating however you like!
+    const removeBadRating = feedback.filter(rating => rating.rating === 1);
+    feedback.pop(removeBadRating);
+    console.log(feedback);
 
     // check if there is at least 5 of one type of meat with some()
+    const checkAtLeastOneMeat = Object.values(meats).some(meat => meat >= 5);
+    console.table(checkAtLeastOneMeat);
     // make sure we have at least 3 of every meat with every()
+    const checkEnoughMeat = Object.values(meats).every(meat => meat >= 3);
+    console.table(checkEnoughMeat)
     // sort the toppings alphabetically with sort()
+    const sortToppings = toppings.sort();
+    console.table(sortToppings);
     // sort the order totals from most expensive to least with .sort()
+    const sortOrderTotals = orderTotals.sort((first, second) => second - first);
+    console.table(sortOrderTotals);
     // Sort the prices with sort()
+    const sortProductsByPrice = Object.entries(prices).sort(function (priceA, priceB) {
+      return priceA[1] - priceB[1];
+    })
+    console.table(Object.fromEntries(sortProductsByPrice));
 
     /*
       Looping Methods (next)
