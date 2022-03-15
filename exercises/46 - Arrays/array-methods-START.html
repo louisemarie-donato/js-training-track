@@ -72,23 +72,67 @@
     */
 
     // Display all bun types with " or " - use join()
+    console.log(buns.join(' or '));
 
     // We have a string "hot dogs,hamburgers,sausages,corn" - use split() to turn it into a string
+    const foodString = "hot dogs,hamburgers,sausages,corn";
+    console.log(foodString);
+    const splitString = foodString.split(',');
+    console.log(splitString);
 
     // take the last item off toppings with pop()
+    console.log(toppings);
+    const lastTopping = toppings.pop();
+    console.log(lastTopping);
+    console.log(toppings);
     // add it back with push()
+    console.log(toppings.push(lastTopping));
+    console.log(toppings);
     // take the first item off toppings with shift()
+    const firstTopping = toppings.shift();
+    console.log(firstTopping);
+    console.log(toppings);
     // add it back in with unshift()
+    console.log(toppings.unshift(firstTopping));
+    console.log(toppings);
     // Do the last four,but immutable (with spreads and new variables)
-
+    const lastItem = toppings.length - 1;
+    const firstItem = toppings[0];
+    let newToppings = toppings.slice(0, lastItem); //pop last item
+    console.log(newToppings);
+    newToppings = [...newToppings, toppings[lastItem]]; //push new item
+    console.log(newToppings);
+    newToppings = toppings.slice(1, toppings.length); //remove first item
+    console.log(newToppings);
+    newToppings = [firstItem, ...newToppings]; //return first item
+    console.log(newToppings);
 
     // Make a copy of the toppings array with slice()
+    const toppingsCopy = toppings.slice(0);
+    console.log('TOPPINGS');
+    console.log(toppings);
+    console.log('TOPPINGS COPY');
+    console.log(toppingsCopy);
     // Make a copy of the toppings array with a spread
+    const toppingsCopy2 = [...toppings];
+    console.log('TOPPINGS COPY 2');
+    console.log(toppingsCopy2);
     // take out items 3 to 5 of your new toppings array with splice()
+    toppingsCopy2.splice(2, 3);
+    console.log(toppingsCopy2);
     // find the index of Avocado with indexOf() / lastIndexOf()
+    const avocadoIndex = toppings.indexOf('Avocado');
+    console.log(avocadoIndex);
     // Check if hot sauce is in the toppings with includes()
+    const isInToppings = toppings.includes('Hot Sauce');
+    console.log(isInToppings);
     // add it if it's not
+    if (!isInToppings) {
+      toppings.push('Hot Sauce');
+    }
+    console.log(toppings);
     // flip those toppings around with reverse()
+    console.log(toppings.reverse());
 
     /*
       Callback Methods
